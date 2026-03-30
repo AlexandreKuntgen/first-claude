@@ -27,6 +27,21 @@ This is a single-page Streamlit dashboard for analyzing Brazilian stock performa
 - **`charts.py`** — Pure functions: data in, `go.Figure` out. No Streamlit calls. Four charts: price, cumulative performance, daily returns, volume. All use `template="plotly_dark"` and `hovermode="x unified"`.
 - **`app.py`** — Layout only: fetches data, renders sidebar checkboxes to filter tickers, passes filtered `metrics` dict to chart functions, renders `st.metric` footer.
 
+## GitHub Repository
+
+O projeto está sincronizado com **[AlexandreKuntgen/first-claude](https://github.com/AlexandreKuntgen/first-claude)**.
+
+**Auto-push:** A cada vez que Claude termina de responder, o hook `.claude/auto-push.sh` é executado automaticamente — ele verifica se há alterações, faz commit e push para `main`.
+
+Para push manual:
+```bash
+git add -A
+git commit -m "mensagem"
+git push origin main
+```
+
+O token de acesso está armazenado no remote URL do git (via `git remote get-url origin`). Para revogar ou trocar o token: **github.com/settings/tokens**.
+
 ## Key Conventions
 
 - `CumulativeReturn` is always based on `Close.iloc[0]` (first trading day in dataset), not a hardcoded date.
